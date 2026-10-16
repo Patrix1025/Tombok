@@ -10,7 +10,7 @@
             torpok[1] = "Szende";
             torpok[2] = "Hapci";
             torpok[3] = "Morgo";
-            torpok[4] = "Tufor";
+            torpok[4] = "Tudor";
             torpok[5] = "Vidor";
             torpok[6] = "Kuka";           
         }
@@ -24,12 +24,36 @@
             }
         }
 
+        static void Csere()
+        {
+            Console.Write("Melyik törpöt cseréljük le? ");
+            string nev = Console.ReadLine();
+            int index = 0;
+            while (index < torpok.Length && torpok[index] !=nev)
+            {
+                index++;
+            }
+            if (index < torpok.Length)
+            {        
+                Console.WriteLine("Mire cseréljük le? ");
+                string ujnev = Console.ReadLine();
+                torpok[index] = ujnev;
+                Console.WriteLine("Lecserélve");
+            }
+            else
+            {
+                Console.WriteLine("Nincs ilyen törp a listában.");
+            }
+        }
+
+
 
 
         static void Main(string[] args)
         {
             TorpokLetrehozasa();
             TorpokKiirasa();
+            Csere();
         }
     }
 }
